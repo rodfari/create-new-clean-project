@@ -49,6 +49,8 @@ dotnet add package FluentValidation.DependencyInjectionExtensions
 dotnet add package MediatR 
 dotnet add package AutoMapper 
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+dotnet add package BCrypt.Net-Next
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.11
 cd -  # Return to the previous directory
 rm $APPLICATION/Class1.cs
 echo '\n\r\n\r\n\rPackage references added to Application project\n\r\n\r\n\r'
@@ -57,11 +59,31 @@ echo '\n\r\n\r\n\rPackage references added to Application project\n\r\n\r\n\r'
 # APPLICATION TEST 
 #
 ######
+TESTS_APPLICATION=$TESTS/Application
+dotnet new xunit -n TestsApplication -o $TESTS_APPLICATION
+rm $TESTS_APPLICATION/UnitTest1.cs
+cd $TESTS_APPLICATION
+dotnet add package Moq
+dotnet add package Moq.AutoMock
+dotnet add package AutoFixture
+dotnet add package Shouldly
+cd -  # Return to the previous directory
+dotnet add $TESTS_APPLICATION reference $APPLICATION
 
-dotnet new xunit -n TestsApplication -o $TESTS/Application
-dotnet add $TESTS/Application reference $APPLICATION
-
-
+#
+# DOMAIN TEST 
+#
+######
+TESTS_DOMAIN=$TESTS/Domain
+dotnet new xunit -n TestsDomain -o $TESTS_DOMAIN
+rm $TESTS_DOMAIN/UnitTest1.cs
+cd $TESTS_DOMAIN
+dotnet add package Moq
+dotnet add package Moq.AutoMock
+dotnet add package AutoFixture
+dotnet add package Shouldly
+cd -  # Return to the previous directory
+dotnet add $TESTS/Domain reference $DOMAIN
 
 #
 # INFRASRUCTURE CLASS LIBRARY
@@ -105,9 +127,19 @@ echo 'Web API project created'
 # Controller tests
 ######
 
-dotnet new xunit -n TestsApi -o $TESTS/Api
-dotnet add $TESTS/Api reference $API
-dotnet add $TESTS/Api reference $APPLICATION
+TESTS_API=$TESTS/Api
+
+dotnet new xunit -n TestsApi -o $TESTS_API
+dotnet add $TESTS_API reference $API
+dotnet add $TESTS_API reference $APPLICATION
+
+rm $TESTS_API/UnitTest1.cs
+cd $TESTS_API
+dotnet add package Moq
+dotnet add package Moq.AutoMock
+dotnet add package AutoFixture
+dotnet add package Shouldly
+cd -  # Return to the previous directory
 echo 'API test project created'
 
 #
@@ -120,8 +152,9 @@ dotnet sln $BACKEND add $API
 dotnet sln $BACKEND add $DOMAIN
 dotnet sln $BACKEND add $APPLICATION
 dotnet sln $BACKEND add $INFRASTRUCTURE_PGSQL
-dotnet sln $BACKEND add $TESTS/Application
-dotnet sln $BACKEND add $TESTS/Api
+dotnet sln $BACKEND add $TESTS_APPLICATION
+dotnet sln $BACKEND add $TESTS_DOMAIN
+dotnet sln $BACKEND add $TESTS_API
 # echo 'Solution file created'
 
 dotnet build $BACKEND
