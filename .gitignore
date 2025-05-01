@@ -1,2 +1,10 @@
 .vscode
 Backend
+bin/
+obj/
+#ignore all files in the bin directory
+
+
+dotnet-tools/bin/Debug/net8.0/CreateProjFiles.dll
+dotnet-tools/bin/Debug/net8.0/CreateProjFiles.dll
+dotnet-tools/bin/Debug/net8.0/CreateProjFiles.pdb

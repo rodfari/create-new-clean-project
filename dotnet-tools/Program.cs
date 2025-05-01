@@ -1,4 +1,4 @@
-﻿using CreateProjFiles.Facade;
+﻿using DotnetTools.Facade;
 
 Console.WriteLine("Enter the feature name: ");
 string featureName = Console.ReadLine() ?? string.Empty;
