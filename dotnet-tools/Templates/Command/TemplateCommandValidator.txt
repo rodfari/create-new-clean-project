@@ -1,0 +1,11 @@
+using FluentValidation;
+
+namespace Core.Application.Features.#Template;
+
+public class #TemplateValidator : AbstractValidator<#TemplateCommand>
+{
+    public #TemplateValidator()
+    {
+       
+    }
+}

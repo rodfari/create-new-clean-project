@@ -1,0 +1,9 @@
+using Core.Application.Shared;
+using MediatR;
+
+namespace Core.Application.Features.#Template;
+
+public class #TemplateCommand : IRequest<TResponse<Shared.Responses.#Template.#TemplateResponse>>
+{
+    
+}

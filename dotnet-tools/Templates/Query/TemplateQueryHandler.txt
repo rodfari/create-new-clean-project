@@ -1,0 +1,38 @@
+using AutoMapper;
+using Core.Application.Shared;
+using Core.Application.Features.#Template;
+using Core.Domain.Contracts;
+using Core.Domain.StatusCodes;
+using MediatR;
+
+namespace Core.Application.Features.#Template.Command;
+
+public class #TemplateQueryHandler
+: IRequestHandler<#TemplateQuery, TResponse<Shared.Responses.#Template.#TemplateResponse>>
+{
+    readonly IMapper _mapper;
+    // readonly I#TemplateRepository _#TemplateRepository;
+    public #TemplateQueryHandler(
+        // I#TemplateRepository #TemplateRepository,
+        IMapper mapper
+        )
+    {
+        _mapper = mapper;
+        // _#TemplateRepository = #TemplateRepository;
+    }
+    public async Task<TResponse<Shared.Responses.#Template.#TemplateResponse>> Handle(
+        #TemplateQuery request,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            return null;
+        }
+        catch (Exception ex)
+        {
+            return new TResponse<Shared.Responses.#Template.#TemplateResponse>()
+            {
+            };
+        }
+    }
+}

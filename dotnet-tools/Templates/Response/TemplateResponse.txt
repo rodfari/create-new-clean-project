@@ -1,0 +1,6 @@
+namespace Core.Application.Shared.Responses.#Template;
+
+public class #TemplateResponse: BaseResponse
+{
+    
+}

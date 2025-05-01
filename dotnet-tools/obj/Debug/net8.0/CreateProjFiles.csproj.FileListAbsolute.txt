@@ -1,0 +1,15 @@
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/bin/Debug/net8.0/CreateProjFiles
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/bin/Debug/net8.0/CreateProjFiles.deps.json
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/bin/Debug/net8.0/CreateProjFiles.runtimeconfig.json
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/bin/Debug/net8.0/CreateProjFiles.dll
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/bin/Debug/net8.0/CreateProjFiles.pdb
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.AssemblyInfoInputs.cache
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.AssemblyInfo.cs
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.csproj.CoreCompileInputs.cache
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.sourcelink.json
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.dll
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/refint/CreateProjFiles.dll
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.pdb
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/CreateProjFiles.genruntimeconfig.cache
+/Users/rodrigofarias/Code/PROJECTS/financial-flow/CreateProjFiles/obj/Debug/net8.0/ref/CreateProjFiles.dll

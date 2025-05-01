@@ -1,0 +1,62 @@
+using AutoMapper;
+using Core.Application.Shared;
+using Core.Application.Features.#Template;
+using Core.Domain.Contracts;
+using Core.Domain.StatusCodes;
+using MediatR;
+
+namespace Core.Application.Features.#Template.Command;
+
+public class #TemplateCommandHandler
+: IRequestHandler<#TemplateCommand, TResponse<Shared.Responses.#Template.#TemplateResponse>>
+{
+    readonly IMapper _mapper;
+    readonly I#TemplateRepository _#TemplateRepository;
+    public #TemplateCommandHandler(
+        I#TemplateRepository #TemplateRepository,
+        IMapper mapper
+        )
+    {
+        _mapper = mapper;
+        _#TemplateRepository = #TemplateRepository;
+    }
+    public async Task<TResponse<Shared.Responses.#Template.#TemplateResponse>> Handle(
+        #TemplateCommand request,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var validation = new #TemplateValidator();
+            var validationResult = await validation.ValidateAsync(request, cancellationToken);
+            if (!validationResult.IsValid)
+            {
+                return new TResponse<Shared.Responses.#Template.#TemplateResponse>()
+                {
+                    Errors = [.. validationResult.Errors.Select(x => x.ErrorMessage)],
+                    Message = "Validation error",
+                    StatusCode = StatusCode.InputValidationFail
+                };
+            }
+
+            var #Template = _mapper.Map<Domain.Entities.#Template>(request);
+            var result = await _#TemplateRepository.CreateAsync(#Template);
+            return new TResponse<Shared.Responses.#Template.#TemplateResponse>()
+            {
+                Data = new Shared.Responses.#Template.#TemplateResponse()
+                {
+                    Id = result.Id,
+
+                },
+                Message = "#Template created successfully",
+                Success = true,
+                StatusCode = StatusCode.Success
+            };
+        }
+        catch (Exception ex)
+        {
+            return new TResponse<Shared.Responses.#Template.#TemplateResponse>()
+            {
+            };
+        }
+    }
+}
